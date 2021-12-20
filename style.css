@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --light-gray: #EEEEEE;
+  --medium-gray: #CCCCCC;
+  --gray: #999999;
+  --dark-gray: #666666;
+  --darker-gray: #333333;
+  --black: #000000;
+}
+
+body {
+  margin: auto;
+  box-sizing: border-box;
+  background-color: var(--medium-gray);
+  color: var(--light-gray);
+  font-family: "Overpass", sans-serif;
+  font-size: 1em;
+  overflow: hidden;
+}
+
+@keyframes logoEnter {
+  0% {transform: scale(1000) translateY(100%);}
+  50% {transform: scale(1) translateY(100%);}
+  75% {transform: scale(1) translateY(100%);}
+  100%{transform: scale(1) translateY(0%)}
+}
+
+.logo {
+  height: 20vh;
+  width: 20vh;
+  z-index: 55;
+  position: relative;
+  padding: 5vh;
+  animation-name: logoEnter;
+  animation-duration: 2s;
+}
+
+@keyframes floatingEnter {
+  0% {transform: translateX(400%);}
+  75% {transform: translateX(-100%);}
+  100%{transform: translateX(0%);}
+}
+
+@keyframes floatingEnterReverse {
+  0% {transform: translateX(-400%);}
+  75% {transform: translateX(100%);}
+  100%{transform: translateX(0%);}
+}
+
+.greeting{
+  transition: ease;
+}
+
+.greeting :nth-child(odd){
+  transform: translateX(500%);
+  animation: floatingEnter 2s forwards;
+  animation-delay: 2s;
+}
+.greeting :nth-child(even){
+  transform: translateX(500%);
+  animation: floatingEnterReverse 2s forwards;
+  animation-delay: 2s;
+}
+
+section.heroSection {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  flex-direction: column;
+}
+.heroSection .mainHeadline, .heroImage{
+  z-index: 5;
+  mix-blend-mode: difference;
+
+}
+
+.heroSection .mainHeadline .greeting {
+  font-size: 5vw;
+  font-weight: 700;
+  text-align: center;
+}
+@media only screen and (max-width: 600px) {
+  .heroSection .mainHeadline .greeting {
+    font-size: 10vw;
+    font-weight: 700;
+    text-align: center;
+  }
+}
+.heroSection .mainHeadline .greeting span {
+  display: block;
+  color: var(--light-gray);
+}
+.yellow {
+  color: var(--light-gray) !important;
+}
+.heroImage {
+  width: 50%;
+}
+.heroImage img {
+  height: 100%;
+  width: 100%;
+}
